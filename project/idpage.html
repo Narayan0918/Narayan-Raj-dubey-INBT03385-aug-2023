@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Netflix</title>
+    <link rel="icon" href="netflixlogo.0.0.1466448626-removebg-preview.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Bebas Neue', cursive;
+            color: white;
+            font-weight: lighter;
+        }
+
+        body {
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .who {
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .who h1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .user {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .one {
+            display: flex;
+        }
+
+        .two {
+            display: flex;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main h1 {
+            color: #888;
+            font-weight: normal;
+            font-size: 24px;
+        }
+
+        .main img {
+            width: 130px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        .manage {
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .manage button {
+            background-color: transparent;
+            border: 1px solid #888;
+            width: 200px;
+            padding: 10px;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .one,
+            .two {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="who">
+            <h1>Who's Watching ?</h1>
+        </div>
+        <div class="user">
+            <div class="one">
+                <a href="netFlix_home_page.html">
+                    <div class="main">
+                        <img src="blue.jpg" alt="">
+                        <h1>Guest 1</h1>
+                    </div>
+                </a>
+                <a href="netFlix_home_page.html">
+                    <div class="main">
+                        <img src="green.jpg" alt="">
+                        <h1>Guest 2</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="two">
+                <a href="netFlix_home_page.html">
+                    <div class="main">
+                        <img src="red.jpg" alt="">
+                        <h1>Guest 3</h1>
+                    </div>
+                </a>
+                <a href="netFlix_home_page.html">
+                    <div class="main">
+                        <img src="light green.jpg" alt="">
+                        <h1>Guest 4</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="manage">
+            <button>Manage Profiles</button>
+        </div>
+    </div>
+</body>
+
+</html>

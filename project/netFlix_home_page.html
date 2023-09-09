@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetFlix</title>
+    <link rel="icon" href="netflixlogo.0.0.1466448626-removebg-preview.png">
+
+    <style>
+        ::-webkit-scrollbar {
+            background-color: #4b4949;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #515050;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Bebas Neue", cursive;
+            color: white;
+        }
+
+        body {
+            background: url(Landing\ Page\ BG);
+            background-repeat: repeat;
+
+        }
+
+
+        .container {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 10;
+        }
+
+        .left img {
+            width: 120px;
+        }
+
+        .right img {
+            border-radius: 2px;
+            width: 35px;
+        }
+
+        .movie {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            height: 600px;
+
+        }
+
+        .movieImg {
+            width: 100%;
+            background: linear-gradient(90deg, #000000 0%, #00000043 21%, #1212120c 100%), url(wallpaperflare.com_wallpaper.jpg);
+            height: 400px;
+            background-position: bottom;
+            position: relative;
+            background-size: cover;
+            height: 600px;
+        }
+
+        .name {
+            height: auto;
+            width: 40%;
+            padding-bottom: 20px;
+        }
+
+        .movieName {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            bottom: 10px;
+            left: 20px;
+        }
+
+        .movieName h1 {
+            font-size: 65px;
+            width: 250px;
+            text-align: center;
+            line-height: 55px;
+            height: 140px;
+            font-family: "Mulish", sans-serif;
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .btn {
+            display: flex;
+            width: 250px;
+            justify-content: space-between;
+        }
+
+        .btn button {
+            width: 49%;
+        }
+
+        .btn button {
+            background-color: gray;
+            color: rgb(255, 255, 255);
+            font-weight: bolder;
+            padding: 5px;
+            outline: none;
+            border: none;
+        }
+
+        .btn button:nth-of-type(1) {
+            background-color: white;
+            color: black;
+            font-weight: bolder;
+            padding: 5px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+        }
+
+        .btn button:nth-of-type(1) i {
+            color: black;
+        }
+
+        .moviesDesc {
+            width: 300px;
+            padding: 10px 0;
+            font-family: "Mulish", sans-serif;
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .first {
+            width: 90%;
+            margin: 50px auto 0;
+        }
+
+        div.ex1 {
+            border-radius: 5px;
+            width: 100%;
+            overflow-x: scroll;
+            display: flex;
+        }
+
+        .ex1 div img {
+            width: 299px;
+            height: 168px;
+            object-fit: cover;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .ex1 div p{
+            text-align: center;
+            background-color: #000000;
+            width: 97%;
+            border: 1px solid black;
+            border-radius: 5px;
+
+            
+        }
+
+        .ex1 div {
+            position: relative;
+        }
+
+        .first h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .ex1 div .heart {
+            position: absolute;
+            padding: 10px;
+            border-radius: 50%;
+            top: 10px;
+            right: 20px;
+            outline: none;
+            border: none;
+            background-color: rgba(49, 46, 46, 0.4);
+        }
+
+        .ex1 div .heart:hover {
+            border-radius: 30%;
+            border: none;
+            background-color: rgba(97, 97, 97, 0.7);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .ex1 div .download {
+            position: absolute;
+            padding: 10px;
+            bottom: 30px;
+            left: 2px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0);
+            background-color: rgba(2, 2, 2, 0.525);
+        }
+
+        .ex1 div .download:hover {
+            border: none;
+            background-color: rgba(97, 97, 97, 0.7);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+        }
+
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+        .search-container {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .search-container .search {
+            transition: all 1s;
+            z-index: 4;
+            position: relative;
+            display: flex;
+            height: 20px;
+            width: 50px;
+            vertical-align: middle;
+            right: -300px;
+            top: 10px;
+        }
+
+        .search-container .search:hover {
+            cursor: pointer;
+        }
+
+
+        .search-container .search input {
+            width: 150px;
+            height: 30px;
+            outline: none;
+            border: 1px solid #ccc;
+            color: #000000;
+            background-color: rgb(255, 255, 255);
+            padding: 8px;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
+            transition: all 1s;
+            z-index: 5;
+            font-weight: bolder;
+            letter-spacing: 0.em;
+            box-sizing: border-box;
+        }
+
+        .example {
+            display: flex;
+        }
+
+        form.example button {
+            height: 154%;
+            width: 100%;
+            padding: 10px;
+            background: #00000000;
+            color: white;
+            font-size: 11px;
+            border: 1px solid rgb(8, 8, 8);
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #000000;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .search-container .input:hover {
+            cursor: pointer;
+        }
+
+        .search-container.active .input {
+            width: 300px;
+            opacity: 1;
+            cursor: text;
+            padding: 0 0 0 50px;
+        }
+
+        .search-container .close {
+            transition: all 1s;
+            z-index: 4;
+            position: relative;
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            vertical-align: middle;
+            right: 55px;
+            visibility: hidden;
+        }
+
+        .search-container input::placeholder {
+            color: #0a0a0a;
+            opacity: 0.5;
+            font-weight: bolder;
+        }
+
+        .search-container .input-box {
+            vertical-align: bottom;
+            display: flex;
+        }
+
+        @media screen and (max-width: 700px) {
+            .search-container {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="left">
+                <a href="netFlix_home_page.html"><img src="Netflix.png" alt="image"></a>
+            </div>
+            <div id="searchBox" class="search-container">
+                <div class="input-box">
+                    <div class="search">
+                        <form class="example">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit" class="fa fa-search"></button>
+                        </form>
+                    </div>
+                    <div class="close"></div>
+
+                </div>
+
+            </div>
+            <div class="right">
+                <a href="idPage.html"><img src="green.jpg" alt="user"></a>
+            </div>
+        </nav>
+        <div class="movie">
+            <div class="movieImg">
+                <div class="movieName">
+                    <img src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/tx1O544a9T7n8Z_G12qaboulQQE/AAAABYO7qfxROfC2zXPyp6FeMWAmk4j4JeAJDJA23UdvSeJ2-fJYDbHwWdE24Vrgp_JFtFNzwbnCvsgBxtwlS_4F1XdTTDaXLS-BZXTXJrS80YAFSZ263hbDqFhOaRYeO8TW0g4HpLQIhTQiJ_mQXxZpYt6H5eMYdA7SFABRAlwm85DjDCXEmk-VLQ.png?r=23b"
+                        alt="strangers-thing" class="name">
+                    <div class="btn">
+                        <button> <i class="fa fa-play"></i> Play</button>
+                        <button> <i class="fa fa-plus"></i> My List</button>
+                    </div>
+                    <div class="moviesDesc">When a young boy vanishes, a small town uncovers a mystery involving secret
+                        experiments, terrifying supernatural forces and one strange little girl.</div>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Top picks for you</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVqDWUme-UcYFwwG_jmQ4tSUGK0A2SHmWt3UYGmxTigIN60nS89sW9H-lvpwwFizX3bT7bKdJwDuPKNTZ1fLTx6sYw6AmdPKl0E.jpg?r=b0a">
+                    <p>Tu Jhoothi mai Makkar</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABefmsTKRs7kXznoWaA76E1rsz9-wYB0Jx-G7qk1the-k9MBZmJi1ISCTEccGIZqbv8JHxRlDZE1Frw00cqiUGG29ysFK4XYz151I67208h2Uxrd41Qc7BvcLXHONOni5w2mk.jpg?r=788">
+                    <p>Lust Stories 2</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaqywdC8njwwYF02b22SbqOTKVhqixY8AC2n4t0hv3dqAK6geciV_g3UPOtKnzjcKmui45LV4iWUpA-Zu1W3phkaoQOFypKG8VtrJDqwK8hv_8bYUhReXcmKwzLQ8tjuF8lZNK8N-dSI_7ugHGVAyD6WNZoPLu7PL8nZE7sHvotiIuy4NntLrnK10pIuiC_MrqqVVCIYHCiPVBaKk-QU_ME_0TxzcXzX_932UmI7Xylv_TLQPXXGrT8nhEybfDHALBgGc01IDPJgG7CuHSFeM1BrEdJq.jpg?r=a50">
+                    <p>Adipurush</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbwCAHAYxKWQ9lC0Os37bEhAzSh0QOO6FB7hL_QqyuQOBAwdeRml9xIZM1_Us5fu3NmRDyfspyffe8NxKOuOz9xQ1yLQQjL99tc.jpg?r=57e">
+                    <p>Maamannan</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfMx4EKRuDXtrOdvV7Yy5wuucxNKa4Dfnyvzp1BV7JT9M0J0sxRRtA_6STAEHtKEumzXhNqU4lywtChboUmlgjMRFSxx6fhjr9Q.jpg?r=2e4">
+                    <p>Motu Patlu Kung Fu Kings</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRFhZ5DEMlsNrloisG4lNMuiS6-u8eMaOtDLmb7V6_uf94qAF71k46iaX44TBn_SHMiY-kXxMEhBwrHdh2m1TE6qhxHSt5m7CFw.jpg?r=fbd">
+                    <p>Kantara</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSh5OIb9OQUuKM7QDV4oJTAwICHQby-SVebQvnP_WuQj1KrOYTo_JXjzeXWcctCsOjITF0E2w8hRuNMsIVrlgJdW8upxgq-LwxdX958FWfyRmFpVTyrl6oMYGdwtXMBUr5_T.jpg?r=23e">
+                    <p>Mission majnu</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSXjhws-aNA7g4_wlLYcn_E7dXCewdLcrJMtb2M83N7NrJ49WNFZ3zKvH2-jYg8nIeeC-cgPCNTBA3RZdgPj9GjTfkyuqZcwLhc.jpg?r=7e8">
+                    <p>Mrs. Chatterjee vs Norway</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABW8oaUjhggl8CMsts1Om0LmNK79aRi8JotMgVeTeq2vpBXYIvL3z_w827AUS34hFXUcxDnwcDsWARDbwTCX6vF4iQnBoGcZTBo8.jpg?r=357">
+                    <p>Thunivu</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUfBoFJ9GGgUN9j2aXlD5JXGZJlwkl-Kwp3rbRdDPNCdPK8enVYjVyfJFgYVwj70gl6wFTlAOrU8FKV7Gwc04BKQ-0_UFyBoXsY.jpg?r=4b5">
+                    <p>RAW Beast</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWXbYa9323Gx5YIGBAvVrcYyNlMrt6T1yVCatyNJWJMf3sJGyL2xkq8xcOldaXI0xh7hzGASdPZ-hTxvLAdHt523UXnsVhF2uQA.jpg?r=96f">
+                    <p>SIR</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaAIKXB-pGekT_AK5YyKKbPSgbl2VOXV-nGARkGDhpybvTvQYwJ8JlPCZcqtDoHu1tEagfNGhAIl_pMLwIKvCN6yswYJBCBVazQ.jpg?r=9f9">
+                    <p>Sehzada</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXcbm3I5MuanXuZjZ13V3nq6wtMWJ0DYSjDka29H1b-avkLcoVZe4B1oYf7Dk6TDsuR4mV_urE0b5fTK_QwnW8pgsDrksL732yg.jpg?r=189">
+                    <p>RAEES</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUfjCDxyT7yeQUDTJyxQvnlnXxgE4URptGnKN5CH5gfXme6hisBHwvyduGKNQAJvbzrr_WiOYmmp31QabmFErldFuke_sLGvi_NJUBCWVlOHFRniJYxzrqhvHE5x06Mu8zSZ.jpg?r=72a">
+                    <p>Chor Nikal Ke Bhaga</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcbD0mkbPc-th_EMlnWLDribHW4ZXBrVmvY3mvNGikhRdXd9tCWasQPwkF7myxoBS7eNN5LjNFoj0RWZJXEoseA7Ve19bZWa8T8.jpg?r=6e4">
+                    <p>Doctor-G</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Horror Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbK0SZnHO1LHY1iX01eKJr5vCSdtehAalWllMrN8wx_GZ0sH75cMZ1Zvd6cRT6o2TWoKBDLvkPLUqWMyvC6Ws8h9iy1rikcUpYo.jpg?r=8db">
+                    <p>The Forest</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcYBWXEWwPYjlUkZoXO5ZxX0vXzK1VKRlJtxabZN1dwBRtTN6lfoU6wKxcPYYSdgO6PM2jH0_M7sQyDoBTA_f3-yzppspSTppLM.jpg?r=b35">
+                    <p>Anacondas The Hunt For The Blood Orchid</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWgxpE5M4dMsUB4eNMDvk4KcrAgqTVAxIHbrzPCn-wJUUzo_-Q5UjrAaPsB8HPOhVL6ahtKGixwmAAxKrI4Uvj5cIK0WH6u07HM.jpg?r=947">
+                    <p>The Pope's Exorcist</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbKXJZlQJHRk5zON8OGKDe3fOTSccwxsGsGrqWMr6kpFSHYVm2qNeVlbqPjw_3oj7tsmEvnf7IPiovrf1e-rl414QGSetLHZzVM.jpg?r=ffb">
+                    <p>Blumhouses Truth Or Dare</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABY1swzRjmlKeSHltER1EvzVqEYR-DO0P6IcJNvnowmM-tcPhb5nxjyJDyqPXm18W6E3YmGsiQhAvo3431cjEnkFdDQsg94_1EA8.jpg?r=fd7">
+                    <p>OLD</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUP01a1TRGhwmZWswktC9-M65u2gcpU9ELbwrci6pDHXJUYANgMCQ2xx5dz6aeS87s_AOiwvzOYyGVvH1p_-70GUsNTdjvhyoGY.jpg?r=a14">
+                    <p>Ouija</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfJ27F4IQEnk2xrNp4nvkDTabCGOKpx19Ab91V1kqlVPbsMuVHChZhrNtHOx5uC_NsW_h0PcLYlODhfGf2eb3AnjrgSQhYST7rBcMIauDsjWOory88kGRZYC0lvvMPbdBF_n.jpg?r=5bb">
+                    <p>Ghost Stories</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTa43vstwvlaUmJWeC1ru3Hc5jwBzbizlPzJ-wmeH-T_nn8SDgTeAxnt1JPBKj8yfruyg4A28L1KjlU2rmLdppnxf6aNug_Wy6w.jpg?r=977">
+                    <p>Annabelle</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSkYZ1wNHbzYPnwB2Q_KgXM0igHFcXwBDJtb_giFAbtSKjMbAa7X_RNvK-zthEibGj3vU1xmm2XABuXexVfA2ye8u92wn4h4hL4.jpg?r=fc8">
+                    <p>Unfriended Dark Web</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeHVGAA70xQ7wqPfbAKpBQ6vRTKYIy54U-1SeG_X7gz2u26ZBky0NTk4PsNU8OBaqRWuUjvLc9Cw9BKGFO3TQ-nW8CsM9pJCJmlCNg1Jy_oTnnGH2qWOgtj2RtavqooJdR2s.jpg?r=8d0">
+                    <p>Choose or Die</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdfYgCNk7FKSJ4EA-YPHr06fKojYEUe5Ug15p93WSSGkhG1Zt6NgFb8IMm79hB-DeysWjGwUINu4_JI6mP0dcB4Jyce6RctF9LmnrMTu0g8Fn461TZ9Cd47_8NJuJT8xtbPL.jpg?r=abd">
+                    <p>Re/Member</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABY1BYU0Lv-a-cESqbLncmAH0oo_1RwjGRluoGSuG7d7dUl_eoN61AbhhnwYvxErwEijqufg920g9unzBbXy3aF02k9aaOyCgxBU.jpg?r=a57">
+                    <p>Hostel</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABV7GX3tDTTg2KOXeRyIhgfnBS2Ihx7wcGtSfTFOPXhZXJ8670SBeyH7mIqzH13xlSXjpJViaFr5Yf_fnM_kpmqlIuMv7SpSQ0ZenWZOqr1KIzuTQ_lH6AOfCtVT7mqVcostF.jpg?r=589">
+                    <p>Death Note</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXXe-V5v6qOYuv5z-zScGdaP_rrQOSWq6eCAHlvG56qRk9eGYf6o36aPis2wXf4T53I4ab5RRwec_eNp5arT0U4cwk8c8OAgMZDXtmZtAkknbQ-IyFGnEMULOinmLikQZnOj.jpg?r=306">
+                    <p>The Chainsaw Massacre</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeV8cKCnE_MnVymv4DQEEBKn-NsLxlAW5ASDu6UaYQkZXX8X9CE9qgX0tGrB6XzdnZbPv21rK7jf2vQpTAT1kMF_nUPR887kNYc.jpg?r=43c">
+                    <P>Asvins</P>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Kids Section</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbb8G7Xr4c4Qfy5HBR4rXK1eswvyJJ2DLo4cIXzmL5nQ0lEh_6nWWCEotsLuinh-cZSq2IziwIi6XBmyXh2uXqs6VGQGmqISQKg.jpg?r=bcb">
+                    <p>Stand By Me</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABday8wz4kSbP7vF0NJRCWIfnXxq46yuOPTBk7y3olTp_KJllgwTauWz1796OVjO0aAA6yyE_kzFg95zcVMGAh_-3Xm55tRswk3KUo9tR9IVYLyuRjIjeYzou3pOmoGsF_rcNkGVAK80-3zR1UAYE3F69C5STN2PSDM7yxmfaBRouS9QN8SBjIOVscetqzXlvLtHDgKEsCzIcO46RUAfeUkdgHJFLVnUyGlXb2SPKGewO599OcSNHKy9LyG_dF-hqGsM5k7qGtXyfmwEN-5uVf_oAzMQkSefvMXHSsNVq2FcZwaEm2nCT_mYC.jpg?r=5d9">
+                    <p>The Monkey King</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZ34GLuGGRGjz3HAB2zH43U6FQU7Y--TirVr8tSzuvANJw07nxySGLsPM92K8T1C3ltxl1VUAR58jeddF2qC04sz95hp_VgESY8.jpg?r=2a7">
+                    <p>Stuart Little 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRQ43QurAtP8tAUUbkVbboo4BfHPWk0iJUxFnJxzAs0ts1TKt0H1vc3aqv1xgDqyqBU0koPA6hxgoe5buhvHYAZClx_C9uDiJGA.jpg?r=c32">
+                    <p>The Boss Baby</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABThHp65t9qo8jfKhefPBvUzVK5s8VjuqC8sAMuRKxWcC3B_fiHAqqLteFHyX635UebEUiByQ-r9u0BUTNPH7nGD84V69M4bIDb4.jpg?r=b94">
+                    <p>Angry Birds 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXU6-nrZZIgt8gOYARXBJy81q3QND9mtxLvD1nOJtLYw2Bd5IfWYYbkDgeJJ7MCzZN5MetGQjIUAapMp5CH03bTadZNv1GbKDww.jpg?r=304">
+                    <p>Madagascar</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaCHN7U8g1HiKuuHjtatngegmX9n8fJSGmS2HH5ODwQYycWjV47kz-ZV-MZdsmIMUAypNrbB7ZNUIgTeMaz-GzxWDpszHqeSsaQ.jpg?r=53c">
+                    <p>Pokemon The secrets of the Jungle</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BMjUwNTkzNTktMDkzYi00OGYxLThjZmUtMDFmOGRiYmQwMmE4XkEyXkFqcGdeQXVyMjUxMTY3ODM@._V1_.jpg">
+                    <p>Boss Baby</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdrhQEALRUnClN_iS9YY77bAVtBFlDAJ5MZBIl51yzYZG-WVfyiMI5Nfk4_3HyRDSValQUupTeKp5hu1DmZk37amcBHq3k3esEo.jpg?r=5f1">
+                    <p>The Secret Life Of Pets</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABc4JyYJEQE23tWc8CMQYWfZgUfsT2S4qybj47XYRlzTuIJs3egPnUuFumH6rtXtOH4CIl_ALih0vYCclI-2eiOitag9521EEXDc.jpg?r=f17">
+                    <p>Clifford</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUPhspLZw7MxoKnnKRjDYhL_q--syjbx8QQFkrAfiq5TpWIXFJEGtyyEhaB6_u8IuGvb0Gmp2b2AEKAlQsDR8xrnA2XZRuxUAyA.jpg?r=931">
+                    <p>Sing 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABevcCxnF415ASm6tsQDgqPIzvyFOiqGRtCzMNCr8kP7l9MbBlktMqNYxFLGuunhrB4wy383CgM7-V71_kBF_5JgEToHstJMnNx3zCWf7JAjN_VQ_fZyeyYRcYpZbNYo429d5.jpg?r=d98">
+                    <p>Wish dragon</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR-NiIiYmGpicmMLMEOomctuX-NDk9WDj2OZnxP2JRjuXnq47nC_hBo4-xgbjuQSX5hRgAvMEI5V83N2yiBKIBQnXpNMH_VW-0M.jpg?r=a75">
+                    <p>The Karate Kid</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdOMhfAfjcdYdkhpd6uHMTvBi3JjxiNy8JgkvpA7fHGjJefxJbF2Afw_23z-Bce7n2RoEqhRkYxxxPhBEHB4pyvI28B9G1SvD3PaOWnuhbBPJtAuHSccEVYX16Nf8csaO1xW.jpg?r=0fd">
+                    <p>we can be heroes</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQcIaSbvshI9_1l16t03xpxQZerZ-zbXAzttsoVFSWB4GJLfx0bmmteD9IqS0E-PKNf2w639JZ7U8LEvARElUDBEbPBgags3C1g.jpg?r=28b">
+                    <p>Turbo</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Animated Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfMx4EKRuDXtrOdvV7Yy5wuucxNKa4Dfnyvzp1BV7JT9M0J0sxRRtA_6STAEHtKEumzXhNqU4lywtChboUmlgjMRFSxx6fhjr9Q.jpg?r=2e4">
+                    <p>motu patlu kung fu kings</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVBcaW-2xcGaDbWoLvD3xPLzGc8NJFiDKidCmBxUvPe_A8BCldkaJSOKbsQF63DfJekeVKje0FLVDdUo2YasrPvh2NCiZek2fWs.jpg?r=0ca">
+                    <p>motu patlu wonderland</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaCHN7U8g1HiKuuHjtatngegmX9n8fJSGmS2HH5ODwQYycWjV47kz-ZV-MZdsmIMUAypNrbB7ZNUIgTeMaz-GzxWDpszHqeSsaQ.jpg?r=53c">
+                    <p>pokemon</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSkTLvh9_C3YGna_V1U-GOM9ESZW8Yv3okU8OqZ4SPeHrjiWPvnv_wcCtjzGUe0GIvU4_FMpYfnvIIMoHYhcPltZEvvtFvV_pM4.jpg?r=593">
+                    <p>kung fu panda 3</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe-EAKTogupa1E7zwgnUEanp8EbVO2W6bRTy5PAesvwajYgmwwuj0d41sX5igToHLbKnv_dZRHfeLpqzQ-tqboOwU4T-W-oFXaY.jpg?r=409">
+                    <p>the croods</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQcIaSbvshI9_1l16t03xpxQZerZ-zbXAzttsoVFSWB4GJLfx0bmmteD9IqS0E-PKNf2w639JZ7U8LEvARElUDBEbPBgags3C1g.jpg?r=28b">
+                    <p>turbo</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTAoT1IX3sfu373_yooIkTre2NK3OSX5ENig2eazIX8oupoMoBqLDZFIJYqGAyxL39e_p0XO2JDcNTWQHOdl9MpcMHIPjbYfKqM.jpg?r=571">
+                    <p>stuart little</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUQJqWKJ1V1FPZn8iZXZKmGI92tzvyEi4s-WNApuuQpHepPoK9VBe6L-7pfZ0raDMxnGPPQNAHZCPBmTc5S4u2bKFZsLlgAzVBE.jpg?r=df4">
+                    <p>sing</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWNExFZh_QP4kZJ6-IQe5b5xF_cpeZsRTO3m-oS-z2IQUglLJLUOSUE_FlkOxwYhKbbVeBjN4JBPw4vlooW_7XKTnusfMziwxDk.jpg?r=19c">
+                    <p>the grinch</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTWTDlLBElcUPLl1S2tBRY4dNqnloxNfsL2UF9cI-2QL3gDWIZEx0u20tKtQu9AqiWBxW_z1EEfvd8jv0WJE40OnxkHj4zUQtSg.jpg?r=21d">
+                    <p>monster house</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABb3dYP4OoTQEgY7n9gBYC-yxDq5aFlfftpxOvB5Yz9pkENd9QrLe24i5ztzDwq7F35T4OYJSHJHAEhXfII8yJh4EbQAIyigW5Cc.jpg?r=bfa">
+                    <p>the emoji movie</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVY9JUxeMLgPxiL1VzUS-moxGDhOnhxQMi2rFIWk_XnZCtc6DSTC4umLe4sFu6mRgyOtlOghqWFdvz-TpQvaAAb5_tg2kP9Dp8w.jpg?r=3a4">
+                    <p>hotel transylvania 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXgJKtI3hDJ_VzmIlYLTe8YGYiP1mr9-C9jWKc9Cgds4dH-LeGfElfSasrgpVFBe6BEuxZMHCoggW9PnSeOi_g7STO7B-Fwj6oQ.jpg?r=50d">
+                    <p>space jam</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfQg9wPPUXIZUJuRTiO2QMsBHhZtcF96DG7yPol3KqkT22xcrnVHCXOGr--JVBfBgAZPZS857CQtUfYpfpPz-wMCSo2wnKZ-wXU.jpg?r=7aa">
+                    <p>barbie</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcvhHKwcZTj573-O4F1dVUoBqMzeZeipRFjdj1-Zaq4XHXRjUt5sRRR2N2I8MCU1QKuH0zO9gpOQKZm6OHfXBPR3jcHo5Qq3o84LWiBvo_ShROhwnt3bU03WTH5fdgAKDBCT.jpg?r=2c4">
+                    <p>sea beast</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Action Thriller</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRFhZ5DEMlsNrloisG4lNMuiS6-u8eMaOtDLmb7V6_uf94qAF71k46iaX44TBn_SHMiY-kXxMEhBwrHdh2m1TE6qhxHSt5m7CFw.jpg?r=fbd">
+                    <p>kantara</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSh5OIb9OQUuKM7QDV4oJTAwICHQby-SVebQvnP_WuQj1KrOYTo_JXjzeXWcctCsOjITF0E2w8hRuNMsIVrlgJdW8upxgq-LwxdX958FWfyRmFpVTyrl6oMYGdwtXMBUr5_T.jpg?r=23e">
+                    <p>mission majnu</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABW8oaUjhggl8CMsts1Om0LmNK79aRi8JotMgVeTeq2vpBXYIvL3z_w827AUS34hFXUcxDnwcDsWARDbwTCX6vF4iQnBoGcZTBo8.jpg?r=357">
+                    <p>thunivu</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcWzBOWXFMhnbCu1y1k--N2HnY32X4XQVKAJIu4W7HRnEeh7FGCN_WmkMq2g39yzwNqSnaz0elw5CBDvoRKwUSdJnWd4Pw3ucNj0fVrpNgwEF-cG0HpAPVTOPvnWunZzMxiR.jpg?r=a98">
+                    <p>extraction 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABadvo7k5raPlSB1iyWIJqUsTOXB9C7kkF_SW_BBcldcW0d2N55MHV2ELQFbt17B5I9X8j11RT69cKf8X9MJRojrt8sHwrMIbXIA.jpg?r=e2c">
+                    <p>ghost</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABbjo7C_EC4B4_bp5MwB8DsxX2GZn6mJ46Bl4PSS4b94_odOUm36pbC10fALySFf1gL-v4j1qL8CYQnFG6mjHSpa83koVV4B8JWs.jpg?r=949">
+                    <p>the tourist</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRPA_o6Nnu5_zvhImXBQn73Vno2XbO36JlJ0aMDEOcQgKZI_oWzS4iZ1v8yoXU2a-UrE5rC_AqLvLWRaON7_PyNf2OvPzgWtsGs.jpg?r=a04">
+                    <p>suryavanshi</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWchCx9KUFZL09UtYs0H5nK9tJqkcH0j49gHrVA_LR7Hq1GbBiV8BzpEz9UBWR2ulS8qrT099LA_UXOKcuCBEcC8GMl2nJ5mRh0.jpg?r=82e">
+                    <p>the equalizer</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABX9Lkbn9JXvBG6Q86jWHHhIAOTQPH4Oz1TmqtLQJ4GkX9mv7zHbCk32XD97shxfqJkD_m75Vldu1z1JeW6Giop9Oo0jeRis-wY8.jpg?r=f6c">
+                    <p>jack reacher</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSk_58ASeZlVGUIa1Of2BKIZDMMqWNqR3nClwdTZqGyX74oxrzEUEbExgMjASbLfZicqZ8BKGMf94zB9qfEOV1B8x-4_0IDO-eI.jpg?r=e80">
+                    <p>the equalizer 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTi0Cu01NLgPvhT3R7RLYu-hNCqb8w2rK-c7zK2M6KaE5mwGwK3MLauj8wDvoj2KFvlb4S6RldWoY7RmB2sVbrZEBqPnIwIPtks.jpg?r=b2f">
+                    <p>code name tiranga</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcFrxcVkyxy-vuDS0mnRz3c-eF8wP8iBqOlrlPuBhXsSJtPaOfLEdPjmI5f6GGrwV6fntNOwLccewDxFAC6WKpnd5sw5KgwA4OI.jpg?r=065">
+                    <p>phantom</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSUEOTJ79eiVHJWXo7kGFJlkXMvGf-ZnWHqRBXI5usSZ5eyF58rZKmU91mZsuuwVxMVCGFXONdnH_9leG1x7CaYMhivxeow1n7c.jpg?r=d11">
+                    <p>thunivu</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYle4EjTWL1-rIsYkBmqk7VOK92ajhX2dCmYZaC75oTXTUfB9bIZp5DytsHyRJ7euTgyMwP9Cu3Mj3hPWmuq_RARcNJgb6dZ3RM.jpg?r=062">
+                    <p>faster</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXhxo6AsYuXBELj39bbAau7YnV0B8PMlwTEeQ9IZsbkpSgDdZwf1cL8Nx95Dpil2yMoonJeoi9wjR9Yt3cxiDB6blZdP1F4XhjI.jpg?r=581">
+                    <p>jack reacher</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Comedy Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcbD0mkbPc-th_EMlnWLDribHW4ZXBrVmvY3mvNGikhRdXd9tCWasQPwkF7myxoBS7eNN5LjNFoj0RWZJXEoseA7Ve19bZWa8T8.jpg?r=6e4">
+                    <p>doctor-g</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdOMhfAfjcdYdkhpd6uHMTvBi3JjxiNy8JgkvpA7fHGjJefxJbF2Afw_23z-Bce7n2RoEqhRkYxxxPhBEHB4pyvI28B9G1SvD3PaOWnuhbBPJtAuHSccEVYX16Nf8csaO1xW.jpg?r=0fd">
+                    <p>we can be heroes</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSkTLvh9_C3YGna_V1U-GOM9ESZW8Yv3okU8OqZ4SPeHrjiWPvnv_wcCtjzGUe0GIvU4_FMpYfnvIIMoHYhcPltZEvvtFvV_pM4.jpg?r=593">
+                    <p>kung fu panda 3</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe-EAKTogupa1E7zwgnUEanp8EbVO2W6bRTy5PAesvwajYgmwwuj0d41sX5igToHLbKnv_dZRHfeLpqzQ-tqboOwU4T-W-oFXaY.jpg?r=409">
+                    <p>the croods</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR7f0YLmToqhjoV3RZJP7pG487HvwE9pPX6gb0c_0G96MiHSqElMOW910A98fBUPTi3GA_1c0mrAOR9UekXV6hEjHcyuwjfNCvE.jpg?r=2bb">
+                    <p>gatta kusthi</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWSE0WpvJvHAPkamy91-JTeD4WmYejd2UgqMK3qUMfQ2oRarw3HW-ryBChaooHzLlisb1yLGdvRXiKwoXxFBESSCsyD3Waun64U.jpg?r=1ae">
+                    <p>chillar party</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQcIaSbvshI9_1l16t03xpxQZerZ-zbXAzttsoVFSWB4GJLfx0bmmteD9IqS0E-PKNf2w639JZ7U8LEvARElUDBEbPBgags3C1g.jpg?r=28b">
+                    <p>turbo</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYHStVYvwilSIUyn8jqRuLVEoEM4Bu5fUTIyXLXDYfFlqLb-bH-CPzp7Y9E9FHoRUQsBvidzdl1w8R88340G87ivc0MPztYxqqo.jpg?r=68c">
+                    <p>rangabali</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABTAoT1IX3sfu373_yooIkTre2NK3OSX5ENig2eazIX8oupoMoBqLDZFIJYqGAyxL39e_p0XO2JDcNTWQHOdl9MpcMHIPjbYfKqM.jpg?r=571">
+                    <p>stuart little</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR6gDi7iPYEdytfsSSmYJPZ_ouRGgvw0xTf3qmngVa6SN6ZgHJ9dCe_KODsCvpEyHW9iTL_5Z4JccxV_zV7z-GTv1lnWzO5zwOo.jpg?r=44b">
+                    <p>main hoon na</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQBSaR1vnkA1QGvSv778qAVhMrKpV4-ZKBFlhVHG6PEWy37o6sM_N8qqtPe0A68fgRSrDxKNbeJ3f_tfRnh4GQwFVfhMZ53ZfdisL0fSSuLP1B63xsmiNILNQtgdCid9tDrV.jpg?r=bb7">
+                    <p>minal murli</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABd0INymGuyiS5PjCTA8uAsqXk-XAk8OX0FEDhzNaOhLzw7dTb3EjNGPSc3F86lO7MtelfAG1x1joYk4JRbKGDMZpf-c2k93JAcE.jpg?r=cea">
+                    <p>matilda</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWNExFZh_QP4kZJ6-IQe5b5xF_cpeZsRTO3m-oS-z2IQUglLJLUOSUE_FlkOxwYhKbbVeBjN4JBPw4vlooW_7XKTnusfMziwxDk.jpg?r=19c">
+                    <p>the grinch</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABUQJqWKJ1V1FPZn8iZXZKmGI92tzvyEi4s-WNApuuQpHepPoK9VBe6L-7pfZ0raDMxnGPPQNAHZCPBmTc5S4u2bKFZsLlgAzVBE.jpg?r=df4">
+                    <p>sing</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVqMTUzzCpQMrapS0gnXFyBwujm5IFCnDmtdxl_qqkmHycwwgUw0ih3PSdEWvP_8YrN3Ceow0Hw5VVa0kXGYELJd2FbkSaisZyI.jpg?r=5bd">
+                    <p>dil dhadakne do</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Sci-Fi Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSk_58ASeZlVGUIa1Of2BKIZDMMqWNqR3nClwdTZqGyX74oxrzEUEbExgMjASbLfZicqZ8BKGMf94zB9qfEOV1B8x-4_0IDO-eI.jpg?r=e80">
+                    <p>the equalizer 2</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeFwD22BRE5y2TCt2AHwe6E-YAov3h3lij-v2P6KWDps_QThhrBem7g6hJ2b4y69DtBJfxHQ2mqNPR3AcfPGMW07QrSI-NL2tRw.jpg?r=d50">
+                    <p>battleship</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVAIaB6b0Dyzvw4vPlE6rQ-3sMqrvj_kyu7mD2DpUOAVmcyQbowgQQnrqO8rgz1E-J0A61Bu6Z8EwauysvQ_7ZRCxHWC1Y0_-pAfqO8JEMRwAp9YC7zrxJIsQwaydx_zFx79z77LWXIIRtFMLYmK70gLyGkQc08lxITIWVsX0rtLt3VmYKeMhTZ_LvyEuSN7PU52ib6WmCUNWbUUQRpKNKsP4gn-CJy-eTlGi-c3qteHAg-tK1jzrB0hNGvsk-Tp9ocPqMrZvZ2jPwg4v7CYUQ22Ig.jpg?r=b6c">
+                    <p>gods of egypt</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdelLguTyn3-mQBp0ydvfJfgFeF2u5XB5wR7vvTA41wqLtnJcD9IQLXalB7KW2ikAuBGytW3XHt_yenXQc8ZqtN8zry_SYwddQp_jR-AF4kwrV8G_pWtnhL4keWwe6BQWf6e.jpg?r=eab">
+                    <p>army of dead</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXAGJ9_pI2w07sLCITKfpuI4CwKYVwmbJZ6G_KvnEpZ5_L2HMSjdj1LclOvafs2VRPZW6aPx-Z7Ofp0xc0bP9dbAM35B8nc3Ef8.jpg?r=2b9">
+                    <p>13 hours</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVJN8jvtGfASLYju2qD0Akvt2lLQOau9a9WfJWdZpVtrIBDCuFTngU_kYDQpM65dX8_W7vL4ct5MnmtpFj8V8T9nxXszaVPKpgo.jpg?r=233">
+                    <p>jurassic world</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXgxN8cPOIoPP-tuznLgRzvbxmAUH0GmcxyvtCG0hUjWZ7y9Ukz34n7tLAYvGT1Ya4VAxq_TtNWrnLHjll2qRwXfWCU3QIcxlZ8.jpg?r=e3e">
+                    <p>the great wall</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR254OJQlhdY0jrHFpNNBJT48DZdEDPhVqAQfDdUKEktk86_lygft2r6zOxE1aUd1dlub76lcK8gA2r32ghHvLwVb_Mmc4xCJXm_2gyIJk7XzCni5Il9P9Q80yXEn-g-FVqW.jpg?r=87c">
+                    <p>troll</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWchCx9KUFZL09UtYs0H5nK9tJqkcH0j49gHrVA_LR7Hq1GbBiV8BzpEz9UBWR2ulS8qrT099LA_UXOKcuCBEcC8GMl2nJ5mRh0.jpg?r=82e">
+                    <p>the equalizer</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQBSaR1vnkA1QGvSv778qAVhMrKpV4-ZKBFlhVHG6PEWy37o6sM_N8qqtPe0A68fgRSrDxKNbeJ3f_tfRnh4GQwFVfhMZ53ZfdisL0fSSuLP1B63xsmiNILNQtgdCid9tDrV.jpg?r=bb7">
+                    <p>minal murli</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeFwD22BRE5y2TCt2AHwe6E-YAov3h3lij-v2P6KWDps_QThhrBem7g6hJ2b4y69DtBJfxHQ2mqNPR3AcfPGMW07QrSI-NL2tRw.jpg?r=d50">
+                    <p>battleship</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVezoylH0_BrXUmyjTK0hK64Zu6XjYNqtEZZuntlOlZ6n0Obv7wf8VCAao2zm8wjziJv9RbWNfCkAFoTz-1p9S1b566WklTHTFs.jpg?r=dbf">
+                    <p>lucy</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaI-GbxkRT96tEOt2FdPfU6mcFg873mHJqIjZvp0xxRw22ktyLoONTBi5VRz5rYw1EWh7ZUMqI65bvrKVlAPZhqmv3zrOnbdH5Q.jpg?r=420">
+                    <p>65</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABVVpO5xf9asL7o8epft43h5h3UWljdJC-KgTm6WyzdDXReOvt1HnOVl-RxRJX97FuCniJ-DzksxndPApFPBNynih48eMP327vZIgH9NdelSNmoJUpBv14yOs0p8iTzeeXCqE.jpg?r=606">
+                    <p>the school for good and evil</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdcFA59RRRldHiAXHMdaEatT0372cFUYNVKwXhcEJ9B4xbWqJUaiIphef7ZOQzeqfzms4JBJkURF4foBO-Vg6DokUeAWb_dc43zeNsl5dvfkruoeQ-3Ia1vaGt2pFNRlmGtt.jpg?r=962">
+                    <p>mowgli</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Movies Based on Real Life</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXJT7Be-Nn-as_ncA_4p6aAVCwEpEXror7iQGNfSSrZhmp9-NZrQOc_dO8fk56ZSxZV15XGRXxMszUQtXZYb5aPWkKy39qhMSQ8.jpg?r=5f7">
+                    <p>everest</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABS_Gmdn76DuUCKrJX_EQZo4JgxsPYoC5C8kQDUaTVUVY-uibCgyIWT84olM__arx7KTFohOuBpYO4C0u9ZhFi-lYoUgl9SfCG1Y.jpg?r=530">
+                    <p>thackeray</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXkluV4d0JUNLA4Pft36SVXD2wycxd8wCPoCpbZrWSlNLP2A6_tLo-yFPhqgWEQM_2BtGcGSEx1spwHO3-R5JBFFks_Vyp7TqrpzcwUkp0DlYHCG_4SiL3_rzCzQeaN43TNi.jpg?r=942">
+                    <p>fatherhood</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQncrvblNCqom0FDDv_kJwWEY6W7s8wDu3lxDHVeAwP6GTaG4Rblvt54VhsdTmQgT49KwqQ7HFI5aC7F84yghHM9-5-Ujada_0kTKWt2fvakexQWo91jgzb59rupgDbrzgbe.jpg?r=074">
+                    <p>brain on fire</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABZJvsfawNT3t7vyfqym4oUjaCYU1lPWNemnBpNf-NMTegO1BGQRRwMk4sjmW74FrqpqCNQYb9vmcQm3lcvVnU_BHxCBhFg81Ls4.jpg?r=fc9">
+                    <p>rocket man</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABShLmdn3zrcqJMieT83aL8BFoRyS6zGPVpFDeEYeFznv2eUSGvLgHfetZY4m_1Moe-7CjJOPVND8yk0wafg5JKEIYUwSF1gprSXFcAXe_VYdXvt4LUe7B6FSVkxiYAZzu81A.jpg?r=495">
+                    <p>dog gone</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQjIO98kDJ2FIQfAT30U9YikAmIVb9qnKcjDA7Jlr_Va7mFgxaJmvjtEUnrL7wU8CDoHnZ4JD0m_mgZsQp53E42k_p8QsrF64EI.jpg?r=f80">
+                    <p>the pursuit of happiness</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABdX0leB7V1_d59_1t5EM5wyDnBdLaeiIetNaV2zciFO9pX0HIJBpJ8NvQBcRL65mwOKO2f3UJNgguRoSczvRqu7jIKOnBHYYR_8.jpg?r=86a">
+                    <p>thalaivii</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABY33FjlYydrZmTddrkmVXH1JV797xiEIzIIM-BLMAPSyfVr3UM5Xx6WlkH-mtMqy1wVn7fpz5TbFggnldL-Ym0N89wHHuk62ov4.jpg?r=f02">
+                    <p>major</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABedsREWHPRtWhJJrh-B_JmMMD0GR2qY05FfVw8ip4gkYjXBGVjZBpqYMB41gfpP7yQ-znMFdChd-J14brgG7mPLSwemtXTjQ0oU.jpg?r=6c2">
+                    <p>a dog's way home</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABfytex8C1ckHN2jveSAbDNJXRfdiE9y0iz6dZVoXRxHHo1ugMTK522tTuql-bZXFvT9Awb4YZ2jQ8drZNVPwFSHppO2giZKnuOjUkTH3MZEP25bp64MLuxkBWuNm_xFvkaVi.jpg?r=cbf">
+                    <p>a man of action</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXAGJ9_pI2w07sLCITKfpuI4CwKYVwmbJZ6G_KvnEpZ5_L2HMSjdj1LclOvafs2VRPZW6aPx-Z7Ofp0xc0bP9dbAM35B8nc3Ef8.jpg?r=2b9">
+                    <p>13 hours</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQUX_FrFnGTaqDyLvdKbJG9cjbNXYjB8RuoLEh_7yhfN0CJmdoHoQYqt0aX3w4Qr5m1YhVOdOgnB-peQ0gHSw-vMb4WxKmyy07U.jpg?r=d8e">
+                    <p>mithu</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSVbEEtEbBfahEDO0W7SxM932XMyLm_W_B88fny3-5JfwtuR9dZ15b-gF2LRUTGh8qCNDFokqB0YGlm03YgtfodbfmiRWMtUTQ4.jpg?r=334">
+                    <p>paan singh tomar</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeZWdDzplNodbunFkP2hmCBqrG8P9ylezzDR3bdbKt4k92uir4FBlOSQFOJSOXUGf0v3VCYh9D175mTQhd74yBQM9Eevk2zDmss.jpg?r=490">
+                    <p>sanju</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="first">
+            <h1>Adventurous Movies</h1>
+            <div class="ex1">
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABW8oaUjhggl8CMsts1Om0LmNK79aRi8JotMgVeTeq2vpBXYIvL3z_w827AUS34hFXUcxDnwcDsWARDbwTCX6vF4iQnBoGcZTBo8.jpg?r=357">
+                    <p>thunivu</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABaAIKXB-pGekT_AK5YyKKbPSgbl2VOXV-nGARkGDhpybvTvQYwJ8JlPCZcqtDoHu1tEagfNGhAIl_pMLwIKvCN6yswYJBCBVazQ.jpg?r=9f9">
+                    <p>sehzada</p>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABYHStVYvwilSIUyn8jqRuLVEoEM4Bu5fUTIyXLXDYfFlqLb-bH-CPzp7Y9E9FHoRUQsBvidzdl1w8R88340G87ivc0MPztYxqqo.jpg?r=68c">
+                    <p>rangbali</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABadvo7k5raPlSB1iyWIJqUsTOXB9C7kkF_SW_BBcldcW0d2N55MHV2ELQFbt17B5I9X8j11RT69cKf8X9MJRojrt8sHwrMIbXIA.jpg?r=e2c">
+                    <p>ghost</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeX-kdJ10PCiLkaH0pEHkqzEeqEmgIRhqH6ddbABPrN00Xe-ajKw4UlpBJ8CwwyRK_Hbx_Tt1YNDknYusXSulQynvIyE5FdZheE.jpg?r=136">
+                    <p>hidden strike</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABcUPWKREENJUcVkIWTBaF9je-o2r1w62LFk63dtdgITFXhzauY-lk0XoskLg8TWXIftkAXlRRBt7I_LkMUHK4-eeZ4dc5fJQpuA.jpg?r=dc5">
+                    <p>doctor</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABX9Lkbn9JXvBG6Q86jWHHhIAOTQPH4Oz1TmqtLQJ4GkX9mv7zHbCk32XD97shxfqJkD_m75Vldu1z1JeW6Giop9Oo0jeRis-wY8.jpg?r=f6c">
+                    <p>jack reacher</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABXJAIeaLoxwHPTuaRMdQcZGKvt0dpsZyarjh0tAiL1tUsvG1ORcp_HtYafrA4ogzeuevvZOazZgqfMuUcYg-42VygOd0GEr3SrM.jpg?r=5e1">
+                    <p>god father</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSk_58ASeZlVGUIa1Of2BKIZDMMqWNqR3nClwdTZqGyX74oxrzEUEbExgMjASbLfZicqZ8BKGMf94zB9qfEOV1B8x-4_0IDO-eI.jpg?r=e80">
+                    <p>the equalizer 2</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABe7pQrPw5Mdd0bx-goPbZSO9JdJJAAr9QbCMTmvp0e4pvX2M_mlqPHoxS6_Mob9PA9Rl_V2D84cGfTdlhyQFkSg8x4OpQTTxHNBv-gfVF9OX0_1JFtFZ2kHebJOuPw8u0a3n.jpg?r=173">
+                    <p>gunjan saxena</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABWNnNFfb5EO7c5DBXlsqSyS71JUVa4h2MQqXDT0Ss5l6laOntrgWj8pM1n17hfXQeID0-9ixP2FK6Yrvboy6UGSXScznzOH6gN4.jpg?r=780">
+                    <p>veeray ya</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR6gDi7iPYEdytfsSSmYJPZ_ouRGgvw0xTf3qmngVa6SN6ZgHJ9dCe_KODsCvpEyHW9iTL_5Z4JccxV_zV7z-GTv1lnWzO5zwOo.jpg?r=44b">
+                    <p>main hoon na</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABSUEOTJ79eiVHJWXo7kGFJlkXMvGf-ZnWHqRBXI5usSZ5eyF58rZKmU91mZsuuwVxMVCGFXONdnH_9leG1x7CaYMhivxeow1n7c.jpg?r=d11">
+                    <p>thunivu</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABeFwD22BRE5y2TCt2AHwe6E-YAov3h3lij-v2P6KWDps_QThhrBem7g6hJ2b4y69DtBJfxHQ2mqNPR3AcfPGMW07QrSI-NL2tRw.jpg?r=d50">
+                    <p>battleship</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+                <div>
+                    <img
+                        src="https://occ-0-2152-3647.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABR1atFeINhxwo23Kca-zKOF2PzvTrP8uQUksiruzQqoOTD6m0CxYakBuZOALo7RxugUYvyLmKfPj_AnlGIRDsOGpi27SYqTa5Nw.jpg?r=2bc">
+                    <p>thallumaala</p>
+                    <button class="download"><i class="fa fa-download"></i>&nbsp;Download</button>
+                    <button class="heart"><i class="fa fa-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="netFlix_home_page.js"></script>
+</body>
+
+</html>
